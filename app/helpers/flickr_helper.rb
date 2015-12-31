@@ -1,6 +1,6 @@
 module FlickrHelper
   def photo_link(photo)
-    photo["link"] && photo["link"][1] ? photo["link"][1]["href"] : ""
+    photo["link"] && photo["link"].last ? photo["link"].last["href"] : ""
   end
 
   def user_name(photo)

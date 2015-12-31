@@ -6,10 +6,11 @@ class FriendsController < ApplicationController
   def photos
     @friends = JSON.parse(@flickr_json_response)["feed"]
     #Reason for below: XML returns a hash for one entry present
-    @friends_photos_entries = @friends["entry"].class == Array ? @friends["entry"] : [@friends["entry"]]
-    if @friends_photos_entries.present?
+    @friends_entries = @friends["entry"]
+    if @friends_entries.present?
+      @friends_entries = @friends_entries.class == Array ? @friends["entry"] : [@friends["entry"]]
       flash.now[:notice] = "My Friends Photos"
-      render template: 'home/index', locals: { photos: @friends_photos_entries }
+      render template: 'home/index', locals: { photos: @friends_entries }
     else
       redirect_to photos_user_path(params[:user_id]), flash: { error: "There are no #{@friends["title"]}" }
     end

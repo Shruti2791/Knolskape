@@ -118,6 +118,3 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails_12factor
   uglifier
-
-BUNDLED WITH
-   1.10.6
