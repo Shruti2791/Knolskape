@@ -1,0 +1,9 @@
+<% photos.each do |photo| %>
+  <div>
+    <div>
+      <%= image_tag photo_link(photo) %>
+      <im>
+    </div>
+    <div><%= link_to user_name(photo), photos_user_path(user_id(photo)) %></div>
+  </div>
+<% end %>

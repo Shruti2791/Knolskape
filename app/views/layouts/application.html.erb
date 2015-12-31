@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Knolskape</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div>
+    <div class="outerflash">
+      <% flash.each do |type, message| -%>
+        <div class="flash <%= type %>">
+          <% if message.is_a? Array
+            message.each do |msg| %>
+              <p><%= msg %></p>
+            <% end %>
+          <% else %>
+          <p><%= message %></p>
+          <% end %>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+
+<%= yield %>
+
+</body>
+</html>

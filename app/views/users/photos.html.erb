@@ -1,0 +1,11 @@
+<div>
+  <%= link_to "See Friend's Photos", photos_user_friends_path(params[:id])%>
+</div>
+<% photos.each do |photo| %>
+  <div>
+    <div>
+      <%= image_tag photo_link(photo) %>
+      <im>
+    </div>
+  </div>
+<% end %>
